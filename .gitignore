@@ -58,6 +58,19 @@ ENV/
 *.pyc
 *.pyo
 
+# Root level files (not needed for frontend deployment)
+vercel.json
+*.md
+!README.md
+!frontend/README.md
+*.sql
+*.sh
+*.json
+!package.json
+!package-lock.json
+!frontend/package.json
+!frontend/package-lock.json
+
 # Backend files (should be removed, but ignore if any remain)
 backend/
 
