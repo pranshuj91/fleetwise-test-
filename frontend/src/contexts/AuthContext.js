@@ -13,17 +13,26 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // CRITICAL: Initialize with mock user immediately to prevent blank screen
+  // TODO: Lovable will implement real Supabase authentication here
+  const [user, setUser] = useState(mockUser); // Start with user, not null
+  const [loading, setLoading] = useState(false); // Start as not loading
 
   useEffect(() => {
     // AUTO-LOGIN: Bypass authentication for frontend-only mode
-    // TODO: Lovable will implement real Supabase authentication here
+    // Set user immediately to prevent any loading state
     const storedUser = localStorage.getItem('user');
     
     if (storedUser) {
       try {
-        setUser(JSON.parse(storedUser));
+        const parsed = JSON.parse(storedUser);
+        if (parsed && parsed.id) {
+          setUser(parsed);
+        } else {
+          setUser(mockUser);
+          localStorage.setItem('user', JSON.stringify(mockUser));
+          localStorage.setItem('token', 'mock-token');
+        }
       } catch (e) {
         // If parse fails, use mock user
         setUser(mockUser);
@@ -37,6 +46,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', 'mock-token');
     }
     
+    // Ensure loading is false
     setLoading(false);
   }, []);
 

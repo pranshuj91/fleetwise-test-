@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "@/index.css";
-import "@/responsive-optimizations.css";
-import App from "@/App";
-import ErrorBoundary from "@/components/ErrorBoundary";
+// Use relative imports for production build compatibility
+import "./index.css";
+import "./responsive-optimizations.css";
+import App from "./App";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 // Suppress React Error Overlay in development for non-critical errors
 if (process.env.NODE_ENV === 'development') {

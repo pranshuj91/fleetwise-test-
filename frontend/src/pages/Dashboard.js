@@ -20,20 +20,22 @@ const Dashboard = () => {
   const navigate = useNavigate();
   
   // Role-based dashboard routing
-  useEffect(() => {
-    const role = user?.role;
-    if (role === 'technician') {
-      navigate('/technician/mobile');
-      return;
-    } else if (role === 'shop_supervisor') {
-      navigate('/supervisor/dashboard');
-      return;
-    } else if (role === 'office_manager') {
-      navigate('/office/pipeline');
-      return;
-    }
-    // company_admin and master_admin stay on main dashboard
-  }, [user, navigate]);
+  // NOTE: Disabled for frontend-only mode to prevent navigation loops
+  // TODO: Lovable will re-enable role-based routing with real auth
+  // useEffect(() => {
+  //   const role = user?.role;
+  //   if (role === 'technician') {
+  //     navigate('/technician/mobile');
+  //     return;
+  //   } else if (role === 'shop_supervisor') {
+  //     navigate('/supervisor/dashboard');
+  //     return;
+  //   } else if (role === 'office_manager') {
+  //     navigate('/office/pipeline');
+  //     return;
+  //   }
+  //   // company_admin and master_admin stay on main dashboard
+  // }, [user, navigate]);
   
   const [stats, setStats] = useState({
     totalTrucks: 0,
