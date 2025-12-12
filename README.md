@@ -8,7 +8,7 @@ This is a frontend-only React application ready for Lovable AI backend generatio
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
 The app will run on `http://localhost:3000`
