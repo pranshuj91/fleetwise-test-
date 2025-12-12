@@ -38,7 +38,7 @@ This project is configured for Vercel deployment:
 ### Project Structure
 
 ```
-frontend/
+/
 ├── src/
 │   ├── pages/          # 65+ pages
 │   ├── components/     # 29+ components
@@ -46,6 +46,7 @@ frontend/
 │   ├── lib/            # API layer
 │   └── contexts/       # Auth context
 ├── public/             # Static assets
+├── plugins/            # Build plugins
 ├── package.json
 └── vercel.json         # Vercel configuration
 ```
