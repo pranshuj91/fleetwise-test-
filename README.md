@@ -7,7 +7,6 @@ This is a frontend-only React application ready for Lovable AI backend generatio
 ### Local Development
 
 ```bash
-cd frontend
 npm install
 npm start
 ```
@@ -23,7 +22,7 @@ This project is configured for Vercel deployment:
    - Vercel will auto-detect the React app
 
 2. **Build Settings:**
-   - **Root Directory:** `frontend`
+   - **Root Directory:** `.` (project root)
    - **Build Command:** `npm run build`
    - **Output Directory:** `build`
    - **Install Command:** `npm install`
